@@ -22,7 +22,7 @@ jobs:
       - name: diff
         run: |
           for file in downloads/*; do
-            cmp --silent "$file" "$(basename "$file")" && rm "$file"
+            if cmp --silent "$file" "$(basename "$file")"; then rm "$file"; fi
           done
 
       - name: commit
