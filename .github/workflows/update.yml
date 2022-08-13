@@ -19,7 +19,7 @@ jobs:
           wget -nv https://drive.google.com/uc?id=1BqaB-Zv5RuaQp-OW0effsFVGCYwvaJ4R \
             -O 'MYCOEIROINK作成コード.ipynb'
           wget -nv https://drive.google.com/uc?id=1VqrxXQS2koUlE8Y7weMlx5n6apXyW9AG \
-            -O 'しぐたろいど.ipynb'
+            -O 'VITS_inference.ipynb'
 
       - name: diff
         run: |
