@@ -1,0 +1,40 @@
+name: update
+
+on:
+  schedule:
+    - cron: '30 5,17 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: download
+        run: |
+          mkdir downloads
+          cd downloads
+          wget -nv https://drive.google.com/uc?id=1BqaB-Zv5RuaQp-OW0effsFVGCYwvaJ4R \
+            -O MYCOEIROINK作成コード_ベータ版.ipynb
+
+      - name: diff
+        run: |
+          for file in downloads/*; do
+            cmp --silent "$file" "$(basename "$file")" && rm "$file"
+          done
+
+      - name: commit
+        run: |
+          [ -z "$(ls -A downloads)" ] && exit 0
+          
+          cp -a downloads/. .
+          rm -rf downloads
+          
+          git config user.name kawanakaiku
+          git config user.email kawanakaiku@users.noreply.github.com
+          git add .
+          git commit -m "Update"
+          git push
+          
