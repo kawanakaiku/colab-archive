@@ -20,6 +20,8 @@ jobs:
             -O 'MYCOEIROINK作成コード.ipynb'
           wget -nv https://drive.google.com/uc?id=1VqrxXQS2koUlE8Y7weMlx5n6apXyW9AG \
             -O 'VITS_inference.ipynb'
+          wget -nv https://drive.google.com/uc?id=1gZe8-ls6ouV9aMwdFxh0DufsJon6iWNH \
+            -O 'TALQuモデルつくるよ_ベリーイージーエディション.ipynb'
 
       - name: diff
         run: |
