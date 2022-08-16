@@ -33,7 +33,11 @@ jobs:
         run: |
           [ -z "$(ls -A downloads)" ] && exit 0
           
-          cp -a downloads/. .
+          for i in  downloads/*
+          do
+          cat < "$i" > "$(basename "$i")"
+          done
+          
           rm -rf downloads
           
           git config user.name kawanakaiku
