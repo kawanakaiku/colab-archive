@@ -22,6 +22,8 @@ jobs:
             -O 'VITS_inference.ipynb'
           wget -nv https://drive.google.com/uc?id=1gZe8-ls6ouV9aMwdFxh0DufsJon6iWNH \
             -O 'TALQuモデルつくるよ_ベリーイージーエディション.ipynb'
+          wget -nv https://drive.google.com/uc?id=1PSmW3pRdEK75pnx3M7QRBlZLTExgWDIS \
+            -O 'だめだねメーカー／Damedane Maker.ipynb'
 
       - name: diff
         run: |
