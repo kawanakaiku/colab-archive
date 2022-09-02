@@ -25,6 +25,13 @@ jobs:
           wget -nv https://drive.google.com/uc?id=1PSmW3pRdEK75pnx3M7QRBlZLTExgWDIS \
             -O 'だめだねメーカー／Damedane Maker.ipynb'
 
+      - name: jq
+        run: |
+          for file in downloads/*; do
+            jq . <"$file" >"$file.tmp"
+            mv "$file.tmp" "$file"
+          done
+
       - name: diff
         run: |
           for file in downloads/*; do
@@ -37,7 +44,7 @@ jobs:
           
           for i in  downloads/*
           do
-          cat < "$i" > "$(basename "$i")"
+          cat <"$i" >"$(basename "$i")"
           done
           
           rm -rf downloads
